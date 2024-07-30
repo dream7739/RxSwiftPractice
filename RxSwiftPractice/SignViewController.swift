@@ -82,16 +82,10 @@ final class SignViewController: UIViewController {
         
         signButton.rx.tap
             .subscribe { _ in
-                self.showAlert()
+                self.showAlert(title: "버튼 클릭", content: "")
             }
             .disposed(by: disposebag)
     }
     
-    private func showAlert(){
-        let alert = UIAlertController(title: "버튼 클릭", message: "클릭클릭", preferredStyle: .alert)
-        let action = UIAlertAction(title: "확인", style: .default)
-        alert.addAction(action)
-        present(alert, animated: true)
-    }
     
 }

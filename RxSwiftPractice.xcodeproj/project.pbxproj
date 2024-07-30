@@ -17,6 +17,9 @@
 		88B3E69B2C58CADB009532E1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88B3E69A2C58CADB009532E1 /* RxSwift */; };
 		88B3E69E2C58CAF5009532E1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88B3E69D2C58CAF5009532E1 /* SnapKit */; };
 		88B3E6A02C58D24F009532E1 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E69F2C58D24F009532E1 /* SignViewController.swift */; };
+		88B3E6A32C58D856009532E1 /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */; };
+		88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */; };
+		88B3E6A72C58DE58009532E1 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6A62C58DE58009532E1 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		88B3E68F2C58CAB2009532E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88B3E6912C58CAB2009532E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88B3E69F2C58D24F009532E1 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePickerViewController.swift; sourceTree = "<group>"; };
+		88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
+		88B3E6A62C58DE58009532E1 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				88B3E68E2C58CAB2009532E1 /* LaunchScreen.storyboard */,
 				88B3E6912C58CAB2009532E1 /* Info.plist */,
 				88B3E69F2C58D24F009532E1 /* SignViewController.swift */,
+				88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */,
+				88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */,
+				88B3E6A62C58DE58009532E1 /* UIViewController+.swift */,
 			);
 			path = RxSwiftPractice;
 			sourceTree = "<group>";
@@ -159,7 +168,10 @@
 				88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */,
 				88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */,
 				88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */,
+				88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */,
 				88B3E6A02C58D24F009532E1 /* SignViewController.swift in Sources */,
+				88B3E6A32C58D856009532E1 /* SimplePickerViewController.swift in Sources */,
+				88B3E6A72C58DE58009532E1 /* UIViewController+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
