@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */; };
 		88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */; };
+		88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */; };
 		88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6832C58CAB0009532E1 /* AppDelegate.swift */; };
 		88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6852C58CAB0009532E1 /* SceneDelegate.swift */; };
 		88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6872C58CAB0009532E1 /* SimpleViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
+		88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		88B3E6802C58CAB0009532E1 /* RxSwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B3E6832C58CAB0009532E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B3E6852C58CAB0009532E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */,
 				88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */,
 				88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */,
+				88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */,
+				88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */,
 				88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */,
 				88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */,
 				88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */,
