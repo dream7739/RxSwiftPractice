@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */; };
+		88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */; };
 		88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6832C58CAB0009532E1 /* AppDelegate.swift */; };
 		88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6852C58CAB0009532E1 /* SceneDelegate.swift */; };
 		88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3E6872C58CAB0009532E1 /* SimpleViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
+		88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
 		88B3E6802C58CAB0009532E1 /* RxSwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88B3E6832C58CAB0009532E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88B3E6852C58CAB0009532E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,10 +66,12 @@
 		88AFCA962C5A18EB00E2CC44 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				88B3E6872C58CAB0009532E1 /* SimpleViewController.swift */,
 				88B3E69F2C58D24F009532E1 /* SignViewController.swift */,
 				88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */,
 				88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */,
 				88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */,
+				88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -95,7 +99,6 @@
 				88AFCA952C5A18E100E2CC44 /* Extension */,
 				88B3E6832C58CAB0009532E1 /* AppDelegate.swift */,
 				88B3E6852C58CAB0009532E1 /* SceneDelegate.swift */,
-				88B3E6872C58CAB0009532E1 /* SimpleViewController.swift */,
 				88B3E6892C58CAB0009532E1 /* Main.storyboard */,
 				88B3E68C2C58CAB2009532E1 /* Assets.xcassets */,
 				88B3E68E2C58CAB2009532E1 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 			files = (
 				88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */,
 				88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */,
+				88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */,
 				88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */,
 				88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */,
 				88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */,
