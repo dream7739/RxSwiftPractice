@@ -10,15 +10,15 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class PhoneViewController: UIViewController {
+final class PhoneViewController: UIViewController {
    
-    let phoneTextField = SignTextField(placeholderText: "연락처를 입력해주세요")
-    let descriptionLabel = UILabel()
-    let nextButton = PointButton(title: "다음")
+    private let phoneTextField = SignTextField(placeholderText: "연락처를 입력해주세요")
+    private let descriptionLabel = UILabel()
+    private let nextButton = PointButton(title: "다음")
 
-    let phoneData = BehaviorRelay(value: "010")
+    private let phoneData = BehaviorRelay(value: "010")
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class PhoneViewController: UIViewController {
         bind()
     }
     
-    func bind(){
+    private func bind(){
         phoneData
             .bind(to: phoneTextField.rx.text)
             .disposed(by: disposeBag)
@@ -56,8 +56,7 @@ class PhoneViewController: UIViewController {
         
     }
     
-    
-    func configureLayout() {
+    private func configureLayout() {
         view.addSubview(phoneTextField)
         view.addSubview(nextButton)
         view.addSubview(descriptionLabel)
@@ -81,7 +80,6 @@ class PhoneViewController: UIViewController {
         
         descriptionLabel.text = "전화번호는 10자리 이상이어야 합니다"
 
-        
     }
 
 }
