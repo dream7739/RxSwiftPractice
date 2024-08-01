@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880EDEF92C5BAD830019E8CC /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDEF82C5BAD830019E8CC /* PhoneViewController.swift */; };
+		880EDEFC2C5BAF850019E8CC /* PointButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDEFB2C5BAF850019E8CC /* PointButton.swift */; };
+		880EDEFE2C5BAF890019E8CC /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDEFD2C5BAF890019E8CC /* SignTextField.swift */; };
+		880EDF012C5BAFAC0019E8CC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF002C5BAFAC0019E8CC /* Resource.swift */; };
+		880EDF032C5BAFE60019E8CC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF022C5BAFE60019E8CC /* NicknameViewController.swift */; };
+		880EDF052C5BB00E0019E8CC /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF042C5BB00E0019E8CC /* BirthdayViewController.swift */; };
 		88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */; };
 		88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */; };
 		88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */; };
@@ -26,6 +32,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		880EDEF82C5BAD830019E8CC /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
+		880EDEFB2C5BAF850019E8CC /* PointButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointButton.swift; sourceTree = "<group>"; };
+		880EDEFD2C5BAF890019E8CC /* SignTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
+		880EDF002C5BAFAC0019E8CC /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		880EDF022C5BAFE60019E8CC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		880EDF042C5BB00E0019E8CC /* BirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
 		88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +69,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880EDEF72C5BAD690019E8CC /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				880EDF042C5BB00E0019E8CC /* BirthdayViewController.swift */,
+				88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */,
+				880EDEF82C5BAD830019E8CC /* PhoneViewController.swift */,
+				880EDF022C5BAFE60019E8CC /* NicknameViewController.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		880EDEFA2C5BAF7B0019E8CC /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				880EDEFD2C5BAF890019E8CC /* SignTextField.swift */,
+				880EDEFB2C5BAF850019E8CC /* PointButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		880EDEFF2C5BAFA50019E8CC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				880EDF002C5BAFAC0019E8CC /* Resource.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		88AFCA952C5A18E100E2CC44 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +114,6 @@
 				88B3E6A42C58DCB6009532E1 /* SimpleTableViewController.swift */,
 				88B3E6A22C58D856009532E1 /* SimplePickerViewController.swift */,
 				88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */,
-				88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -98,6 +137,9 @@
 		88B3E6822C58CAB0009532E1 /* RxSwiftPractice */ = {
 			isa = PBXGroup;
 			children = (
+				880EDEFF2C5BAFA50019E8CC /* Resource */,
+				880EDEFA2C5BAF7B0019E8CC /* CustomView */,
+				880EDEF72C5BAD690019E8CC /* Sign */,
 				88AFCA962C5A18EB00E2CC44 /* Sample */,
 				88AFCA952C5A18E100E2CC44 /* Extension */,
 				88B3E6832C58CAB0009532E1 /* AppDelegate.swift */,
@@ -191,15 +233,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */,
+				880EDF032C5BAFE60019E8CC /* NicknameViewController.swift in Sources */,
 				88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */,
+				880EDEFC2C5BAF850019E8CC /* PointButton.swift in Sources */,
+				880EDEFE2C5BAF890019E8CC /* SignTextField.swift in Sources */,
 				88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */,
 				88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */,
 				88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */,
 				88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */,
 				88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */,
 				88B3E6A02C58D24F009532E1 /* SignViewController.swift in Sources */,
+				880EDEF92C5BAD830019E8CC /* PhoneViewController.swift in Sources */,
 				88B3E6A32C58D856009532E1 /* SimplePickerViewController.swift in Sources */,
+				880EDF052C5BB00E0019E8CC /* BirthdayViewController.swift in Sources */,
 				88B3E6A72C58DE58009532E1 /* UIViewController+.swift in Sources */,
+				880EDF012C5BAFAC0019E8CC /* Resource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
