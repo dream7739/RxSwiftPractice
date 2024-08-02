@@ -13,6 +13,10 @@
 		880EDF012C5BAFAC0019E8CC /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF002C5BAFAC0019E8CC /* Resource.swift */; };
 		880EDF032C5BAFE60019E8CC /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF022C5BAFE60019E8CC /* NicknameViewController.swift */; };
 		880EDF052C5BB00E0019E8CC /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EDF042C5BB00E0019E8CC /* BirthdayViewController.swift */; };
+		8810B9DA2C5C775200EC5F21 /* ShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8810B9D92C5C775200EC5F21 /* ShopTableViewCell.swift */; };
+		8810B9DC2C5C775B00EC5F21 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8810B9DB2C5C775B00EC5F21 /* ShopViewController.swift */; };
+		8810B9DE2C5C852E00EC5F21 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8810B9DD2C5C852E00EC5F21 /* Shop.swift */; };
+		8810B9E02C5C94C800EC5F21 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8810B9DF2C5C94C800EC5F21 /* ShopDetailViewController.swift */; };
 		88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */; };
 		88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */; };
 		88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */; };
@@ -38,6 +42,10 @@
 		880EDF002C5BAFAC0019E8CC /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		880EDF022C5BAFE60019E8CC /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		880EDF042C5BB00E0019E8CC /* BirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
+		8810B9D92C5C775200EC5F21 /* ShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewCell.swift; sourceTree = "<group>"; };
+		8810B9DB2C5C775B00EC5F21 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		8810B9DD2C5C852E00EC5F21 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		8810B9DF2C5C94C800EC5F21 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
 		88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +105,17 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		8810B9D82C5C774500EC5F21 /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				8810B9D92C5C775200EC5F21 /* ShopTableViewCell.swift */,
+				8810B9DB2C5C775B00EC5F21 /* ShopViewController.swift */,
+				8810B9DD2C5C852E00EC5F21 /* Shop.swift */,
+				8810B9DF2C5C94C800EC5F21 /* ShopDetailViewController.swift */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
 		88AFCA952C5A18E100E2CC44 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +156,7 @@
 		88B3E6822C58CAB0009532E1 /* RxSwiftPractice */ = {
 			isa = PBXGroup;
 			children = (
+				8810B9D82C5C774500EC5F21 /* Shopping */,
 				880EDEFF2C5BAFA50019E8CC /* Resource */,
 				880EDEFA2C5BAF7B0019E8CC /* CustomView */,
 				880EDEF72C5BAD690019E8CC /* Sign */,
@@ -232,7 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8810B9DA2C5C775200EC5F21 /* ShopTableViewCell.swift in Sources */,
 				88B3E6882C58CAB0009532E1 /* SimpleViewController.swift in Sources */,
+				8810B9DC2C5C775B00EC5F21 /* ShopViewController.swift in Sources */,
 				880EDF032C5BAFE60019E8CC /* NicknameViewController.swift in Sources */,
 				88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */,
 				880EDEFC2C5BAF850019E8CC /* PointButton.swift in Sources */,
@@ -243,7 +265,9 @@
 				88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */,
 				88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */,
 				88B3E6A02C58D24F009532E1 /* SignViewController.swift in Sources */,
+				8810B9E02C5C94C800EC5F21 /* ShopDetailViewController.swift in Sources */,
 				880EDEF92C5BAD830019E8CC /* PhoneViewController.swift in Sources */,
+				8810B9DE2C5C852E00EC5F21 /* Shop.swift in Sources */,
 				88B3E6A32C58D856009532E1 /* SimplePickerViewController.swift in Sources */,
 				880EDF052C5BB00E0019E8CC /* BirthdayViewController.swift in Sources */,
 				88B3E6A72C58DE58009532E1 /* UIViewController+.swift in Sources */,
