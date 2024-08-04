@@ -6,36 +6,59 @@
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 import RxCocoa
-import SnapKit
 
-final class PasswordViewController: UIViewController {
+class PasswordViewController: UIViewController {
+   
+    let passwordTextField = SignTextField(placeholderText: "비밀번호를 입력해주세요")
+    let descriptionLabel = UILabel()
+    let nextButton = PointButton(title: "다음")
     
-    private let passwordTextField = UITextField()
-    private let descriptionLabel = UILabel()
-    private let nextButton = UIButton()
+    let passwordDescription = Observable.just("8자 이상 입력해주세요")
+    let disposeBag = DisposeBag()
     
-    private let validText = Observable.just("8자 이상 입력해주세요")
-    
-    private let disposebag = DisposeBag()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        configureHierarchy()
+
+        view.backgroundColor = Color.white
+        
         configureLayout()
-        configureUI()
-        configurePassword()
+        bind()
     }
     
-    private func configureHierarchy(){
+    func bind(){
+        passwordDescription
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        let validation = passwordTextField.rx.text.orEmpty
+            .map { $0.count >= 8 }
+        
+        validation
+            .bind(to: nextButton.rx.isEnabled, descriptionLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        validation
+            .bind(with: self) { owner, value in
+                let color: UIColor = value ?  .systemBlue : .lightGray
+                owner.nextButton.backgroundColor = color
+            }
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(PhoneViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func configureLayout() {
         view.addSubview(passwordTextField)
         view.addSubview(descriptionLabel)
         view.addSubview(nextButton)
-    }
-    
-    private func configureLayout(){
+         
         passwordTextField.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(200)
@@ -43,9 +66,8 @@ final class PasswordViewController: UIViewController {
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.height.equalTo(20)
-            make.top.equalTo(passwordTextField.snp.bottom)
-            make.horizontalEdges.equalTo(view.safeAreaInsets).inset(20)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(4)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         nextButton.snp.makeConstraints { make in
@@ -53,39 +75,7 @@ final class PasswordViewController: UIViewController {
             make.top.equalTo(passwordTextField.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-            
+        
     }
-    
-    private func configureUI(){
-        passwordTextField.borderStyle = .roundedRect
-        descriptionLabel.textColor = .systemRed
-        nextButton.backgroundColor = .systemBlue
-    }
-    
-    private func configurePassword(){
-        validText
-            .bind(to: descriptionLabel.rx.text)
-            .disposed(by: disposebag)
-        
-        let validation = passwordTextField.rx.text.orEmpty
-            .map { $0.count >= 8}
-        
-        validation
-            .bind(to: nextButton.rx.isEnabled, descriptionLabel.rx.isHidden)
-            .disposed(by: disposebag)
-        
-        validation
-            .bind(with: self) { owner, value in
-                let color: UIColor = value ? .systemPink : .lightGray
-                owner.nextButton.backgroundColor = color
-            }
-            .disposed(by: disposebag)
-        
-        nextButton.rx.tap
-            .bind(with: self) { owner, _ in
-                owner.showAlert(title: "클릭", content: "")
-            }
-            .disposed(by: disposebag)
-    }
-}
 
+}
