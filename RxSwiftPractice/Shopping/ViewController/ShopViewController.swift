@@ -17,8 +17,8 @@ final class ShopViewController: UIViewController {
     private let addButton = UIButton()
     private let tableView = UITableView()
     
-    private lazy var items = BehaviorRelay(value: data)
-    private var data = ShopResult.list
+    let viewModel = ShopViewModel()
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -83,78 +83,51 @@ final class ShopViewController: UIViewController {
     }
     
     private func bind(){
-        items
+        let input = ShopViewModel.Input(
+            itemDelete: tableView.rx.itemDeleted,
+            itemSelect: tableView.rx.itemSelected,
+            modelSelect: tableView.rx.modelSelected(Shop.self),
+            addTap: addButton.rx.tap,
+            addText: searchTextField.rx.text,
+            searchText: searchController.searchBar.rx.text
+        )
+        
+        let output = viewModel.transform(input: input)
+        
+        viewModel.items
             .bind(to: tableView.rx.items(cellIdentifier: ShopTableViewCell.identifier, cellType: ShopTableViewCell.self)) { (row, element, cell) in
                 cell.configureData(element)
-                
+            
                 cell.checkButton.rx.tap
                     .bind(with: self) { owner, _ in
-                        owner.data[row].isComplete.toggle()
-                        owner.items.accept(owner.data)
+                        owner.viewModel.checkButtonClicked.accept(row)
                     }
                     .disposed(by: cell.disposeBag)
                 
                 cell.starButton.rx.tap
                     .bind(with: self) { owner, _ in
-                        owner.data[row].isFavorited.toggle()
-                        owner.items.accept(owner.data)
+                        owner.viewModel.starButtonClicked.accept(row)
                     }
                     .disposed(by: cell.disposeBag)
+                
             }
             .disposed(by: disposeBag)
         
-        tableView.rx.itemDeleted
-            .bind(with: self) { owner, index in
-                owner.data.remove(at: index.row)
-                owner.items.accept(owner.data)
-            }
-            .disposed(by: disposeBag)
-        
-        Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(Shop.self))
-            .map { index, value in
-                return (idx: index.row, data: value)
-            }
+        output.selectedData
             .bind(with: self) { owner, value in
                 let detailVC = ShopDetailViewController()
-                detailVC.detailData.accept(value.data)
-                detailVC.editTitleSender = { title in
-                    owner.data[value.idx].title = title
-                    owner.items.accept(owner.data)
+                detailVC.viewModel.detailData.accept(value.data.title)
+
+                detailVC.viewModel.editTitleSender = { [weak self] title in
+                    self?.viewModel.data[value.idx].title = title
+                    self?.viewModel.items.accept(self?.viewModel.data ?? [])
                 }
+                
                 owner.navigationController?.pushViewController(detailVC, animated: true)
                 
             }
             .disposed(by: disposeBag)
         
-        addButton.rx.tap
-            .withLatestFrom(searchTextField.rx.text.orEmpty){ void, text in
-                return text
-            }
-            .bind(with: self){ owner, value in
-                if !value.isEmpty {
-                    let shop = Shop(title: value)
-                    owner.data.insert(shop, at: 0)
-                    owner.items.accept(owner.data)
-                }
-            }
-            .disposed(by: disposeBag)
-        
-        searchController.searchBar
-            .rx.text
-            .orEmpty
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .bind(with: self) { owner, value in
-                let filterList = owner.data.filter {
-                    $0.title.localizedCaseInsensitiveContains(value)
-                }
-                
-                if !filterList.isEmpty {
-                    owner.items.accept(filterList)
-                }else{
-                    owner.items.accept(owner.data)
-                }
-            }
-            .disposed(by: disposeBag)
         
     }
 }

@@ -13,10 +13,9 @@ import RxCocoa
 final class ShopDetailViewController: UIViewController {
     private let titleTextField = UITextField()
     
-    let detailData = BehaviorRelay(value: Shop(title: ""))
-    let disposeBag = DisposeBag()
+    let viewModel = ShopDetailViewModel()
     
-    var editTitleSender: ((String) -> Void)?
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +38,20 @@ final class ShopDetailViewController: UIViewController {
     }
     
     private func bind(){
-        detailData
-            .map{ $0.title }
+        let input = ShopDetailViewModel.Input(
+            title: titleTextField.rx.text,
+            navigationTap: navigationItem.rightBarButtonItem!.rx.tap
+        )
+        
+        let output = viewModel.transform(input: input)
+        
+        viewModel.detailData
             .bind(to: titleTextField.rx.text)
             .disposed(by: disposeBag)
         
-        titleTextField
-            .rx
-            .text
-            .orEmpty
+        output.validation
             .bind(with: self) { owner, value in
-                if value.isEmpty {
+                if value {
                     owner.navigationItem.rightBarButtonItem?.isEnabled = false
                 }else{
                     owner.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -57,10 +59,9 @@ final class ShopDetailViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        navigationItem.rightBarButtonItem?.rx.tap
-            .withLatestFrom(titleTextField.rx.text.orEmpty)
+        output.editText
             .bind(with: self, onNext: { owner, value in
-                owner.editTitleSender?(value)
+                owner.viewModel.editTitleSender?(value)
                 owner.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
