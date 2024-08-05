@@ -67,9 +67,7 @@ final class BirthdayViewController: UIViewController {
     
     private let nextButton = PointButton(title: "가입하기")
     
-    private let year = BehaviorRelay(value: 0)
-    private let month = BehaviorRelay(value: 0)
-    private let day = BehaviorRelay(value: 0)
+    let viewModel = BirthdayViewModel()
     
     private let disposeBag = DisposeBag()
     
@@ -83,21 +81,14 @@ final class BirthdayViewController: UIViewController {
     }
     
     private func bind(){
-        birthDayPicker.rx.date
-            .bind(with: self, onNext: { owner, value in
-                let component = Calendar.current.dateComponents([.year, .month, .day], from: value)
-                owner.year.accept(component.year!)
-                owner.month.accept(component.month!)
-                owner.day.accept(component.day!)
-            })
-            .disposed(by: disposeBag)
+        let input = BirthdayViewModel.Input(
+            date: birthDayPicker.rx.date.asDriver(),
+            tap: nextButton.rx.tap
+        )
         
-        birthDayPicker.rx.date
-            .map { value in
-                let compare = Calendar.current.dateComponents([.year], from: value, to: Date())
-                let age = compare.year!
-                return age > 17
-            }
+        let output = viewModel.transform(input: input)
+        
+        output.validation
             .bind(with: self) { owner, value in
                 let color: UIColor = value ? .systemBlue : .systemRed
                 let buttonColor: UIColor = value ? .systemBlue : .lightGray
@@ -110,28 +101,27 @@ final class BirthdayViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        output.tap
             .bind(with: self) { owner, _ in
                 owner.showAlert(title: "완료", content: nil)
             }
             .disposed(by: disposeBag)
         
-        year.bind(with: self, onNext: { owner, value in
-            owner.yearLabel.text = "\(value)년"
-        })
-        .disposed(by: disposeBag)
+        output.year
+            .map { "\($0)년 "}
+            .bind(to: yearLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        month.bind(with: self, onNext: { owner, value in
-            owner.monthLabel.text = "\(value)월"
-        })
-        .disposed(by: disposeBag)
+        output.month
+            .map { "\($0)월 "}
+            .bind(to: monthLabel.rx.text)
+            .disposed(by: disposeBag)
         
-        day.bind(with: self, onNext: { owner, value in
-            owner.dayLabel.text = "\(value)일"
-        })
-        .disposed(by: disposeBag)
-        
-        
+        output.day
+            .map { "\($0)일 "}
+            .bind(to: dayLabel.rx.text)
+            .disposed(by: disposeBag)
+    
     }
     
     private func configureLayout() {
@@ -164,7 +154,7 @@ final class BirthdayViewController: UIViewController {
             make.top.equalTo(birthDayPicker.snp.bottom).offset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
-
+        
     }
     
 }

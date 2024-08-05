@@ -16,7 +16,7 @@ final class PhoneViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let nextButton = PointButton(title: "다음")
 
-    private let phoneData = BehaviorRelay(value: "010")
+    let viewModel = PhoneViewModel()
     
     private let disposeBag = DisposeBag()
 
@@ -31,13 +31,22 @@ final class PhoneViewController: UIViewController {
     }
     
     private func bind(){
-        phoneData
+        let input = PhoneViewModel.Input(
+            tap: nextButton.rx.tap,
+            phone: phoneTextField.rx.text
+        )
+        
+        let output = viewModel.transform(input: input)
+        
+        viewModel.phoneDescription
             .bind(to: phoneTextField.rx.text)
             .disposed(by: disposeBag)
         
-        phoneTextField.rx.text
-            .orEmpty
-            .map { $0.count >= 10}
+        viewModel.validationText
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validation
             .bind(with: self) { owner, value in
                 let color: UIColor = value ? .black : .gray
                 owner.phoneTextField.layer.borderColor = color.cgColor
@@ -48,7 +57,7 @@ final class PhoneViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        output.tap
             .bind(with: self) { owner, _ in
                 owner.navigationController?.pushViewController(BirthdayViewController(), animated: true)
             }
@@ -78,7 +87,6 @@ final class PhoneViewController: UIViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        descriptionLabel.text = "전화번호는 10자리 이상이어야 합니다"
 
     }
 

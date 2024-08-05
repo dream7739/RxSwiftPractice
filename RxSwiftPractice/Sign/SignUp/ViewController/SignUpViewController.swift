@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     let validationButton = UIButton()
     let nextButton = PointButton(title: "다음")
     
-    let emailDescription = Observable.just("이메일은 8자 이상이어야 합니다")
+    let viewModel = SignUpViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -32,16 +32,20 @@ class SignUpViewController: UIViewController {
     }
     
     func bind(){
-        emailDescription
+        let input = SignUpViewModel.Input(
+            tap: nextButton.rx.tap, 
+            validTap: validationButton.rx.tap,
+            email: emailTextField.rx.text
+        )
+        
+        let output = viewModel.transform(input: input)
+        
+        viewModel.validationText
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let email = emailTextField.rx
-            .text
-            .orEmpty
         
-        email
-            .map { $0.count > 8 }
+        output.validation
             .bind(with: self) { owner, value in
                 let color: UIColor = value ? .systemBlue : .lightGray
                 owner.nextButton.backgroundColor = color
@@ -50,7 +54,7 @@ class SignUpViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        email.map { $0.isEmpty }
+        output.countValidation
             .bind(with: self) { owner, value in
                 let color: UIColor = value ? .lightGray : .black
                 owner.validationButton.isEnabled = !value
@@ -59,13 +63,13 @@ class SignUpViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        validationButton.rx.tap
+        output.validTap
             .bind(with: self) { owner, value in
                 owner.showAlert(title: "중복확인", content: "")
             }
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
+        output.tap
             .bind(with: self) { owner, value in
                 owner.navigationController?.pushViewController(PasswordViewController(), animated: true)
             }
