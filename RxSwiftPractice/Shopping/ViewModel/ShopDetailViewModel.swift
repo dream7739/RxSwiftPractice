@@ -26,7 +26,7 @@ final class ShopDetailViewModel {
     func transform(input: Input) -> Output {
         let validation = input.title
             .orEmpty
-            .map { $0.isEmpty }
+            .map { !$0.isEmpty }
         
         let editText = input.navigationTap
             .withLatestFrom(input.title.orEmpty)

@@ -25,7 +25,7 @@ final class ShopCollectionViewCell: UICollectionViewCell {
     func configureView(){
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.edges.equalTo(contentView).inset(10)
         }
         
         titleLabel.textAlignment = .center

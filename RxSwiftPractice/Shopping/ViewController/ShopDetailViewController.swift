@@ -51,11 +51,7 @@ final class ShopDetailViewController: UIViewController {
         
         output.validation
             .bind(with: self) { owner, value in
-                if value {
-                    owner.navigationItem.rightBarButtonItem?.isEnabled = false
-                }else{
-                    owner.navigationItem.rightBarButtonItem?.isEnabled = true
-                }
+                owner.navigationItem.rightBarButtonItem?.isEnabled = value
             }
             .disposed(by: disposeBag)
         
