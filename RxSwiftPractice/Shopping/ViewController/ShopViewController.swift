@@ -15,7 +15,16 @@ final class ShopViewController: UIViewController {
     private let searchView = UIView()
     private let searchTextField = UITextField()
     private let addButton = UIButton()
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     private let tableView = UITableView()
+    
+    static func layout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 120, height: 35)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.scrollDirection = .horizontal
+        return layout
+    }
     
     let viewModel = ShopViewModel()
     
@@ -39,6 +48,7 @@ final class ShopViewController: UIViewController {
         searchView.addSubview(searchTextField)
         searchView.addSubview(addButton)
         view.addSubview(tableView)
+        view.addSubview(collectionView)
     }
     
     private func configureLayout(){
@@ -61,10 +71,17 @@ final class ShopViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-10)
         }
         
-        tableView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.top.equalTo(searchView.snp.bottom).offset(14)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(40)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(14)
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
     }
     
     private func configureUI(){
@@ -80,13 +97,25 @@ final class ShopViewController: UIViewController {
         
         tableView.register(ShopTableViewCell.self, forCellReuseIdentifier: ShopTableViewCell.identifier)
         tableView.rowHeight = 50
+        
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(ShopCollectionViewCell.self, forCellWithReuseIdentifier: ShopCollectionViewCell.identifier)
     }
     
     private func bind(){
+        let checkButtonClicked = PublishRelay<Int>()
+        let starButtonClicked = PublishRelay<Int>()
+        let modifyTitle = PublishRelay<(Int, String)>()
+        
         let input = ShopViewModel.Input(
+            checkButtonClicked: checkButtonClicked,
+            starButtonClicked: starButtonClicked,
             itemDelete: tableView.rx.itemDeleted,
             itemSelect: tableView.rx.itemSelected,
             modelSelect: tableView.rx.modelSelected(Shop.self),
+            recommendItemSelect: collectionView.rx.itemSelected,
+            recommendModelSelect: collectionView.rx.modelSelected(String.self),
+            modifyTitle: modifyTitle,
             addTap: addButton.rx.tap,
             addText: searchTextField.rx.text,
             searchText: searchController.searchBar.rx.text
@@ -94,39 +123,46 @@ final class ShopViewController: UIViewController {
         
         let output = viewModel.transform(input: input)
         
-        viewModel.items
+        //tableView
+        output.items
             .bind(to: tableView.rx.items(cellIdentifier: ShopTableViewCell.identifier, cellType: ShopTableViewCell.self)) { (row, element, cell) in
                 cell.configureData(element)
-            
+                
                 cell.checkButton.rx.tap
                     .bind(with: self) { owner, _ in
-                        owner.viewModel.checkButtonClicked.accept(row)
+                        input.checkButtonClicked.accept(row)
                     }
                     .disposed(by: cell.disposeBag)
                 
                 cell.starButton.rx.tap
                     .bind(with: self) { owner, _ in
-                        owner.viewModel.starButtonClicked.accept(row)
+                        input.starButtonClicked.accept(row)
                     }
                     .disposed(by: cell.disposeBag)
                 
             }
             .disposed(by: disposeBag)
         
+        //tableView itemSelect modelSelect
         output.selectedData
             .bind(with: self) { owner, value in
                 let detailVC = ShopDetailViewController()
                 detailVC.viewModel.detailData.accept(value.data.title)
-
-                detailVC.viewModel.editTitleSender = { [weak self] title in
-                    self?.viewModel.data[value.idx].title = title
-                    self?.viewModel.items.accept(self?.viewModel.data ?? [])
+                
+                detailVC.viewModel.editTitleSender = { title in
+                    input.modifyTitle.accept((value.idx, title))
                 }
                 
                 owner.navigationController?.pushViewController(detailVC, animated: true)
                 
             }
             .disposed(by: disposeBag)
+        
+        //collectionView
+        output.recommendData.bind(to: collectionView.rx.items(cellIdentifier: ShopCollectionViewCell.identifier, cellType: ShopCollectionViewCell.self)){ (row, element, cell) in
+            cell.titleLabel.text = element
+        }
+        .disposed(by: disposeBag)
         
         
     }

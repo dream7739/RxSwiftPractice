@@ -25,6 +25,7 @@
 		88387D702C5FA1BD005C0517 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88387D6F2C5FA1BD005C0517 /* SignUpViewController.swift */; };
 		88791D9F2C60E15D00679EE7 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88791D9E2C60E15D00679EE7 /* ShopViewModel.swift */; };
 		88791DA52C60F40B00679EE7 /* ShopDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88791DA42C60F40B00679EE7 /* ShopDetailViewModel.swift */; };
+		889EAD3F2C635D1C0057866B /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889EAD3E2C635D1C0057866B /* ShopCollectionViewCell.swift */; };
 		88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */; };
 		88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */; };
 		88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */; };
@@ -62,6 +63,7 @@
 		88387D6F2C5FA1BD005C0517 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		88791D9E2C60E15D00679EE7 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		88791DA42C60F40B00679EE7 /* ShopDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewModel.swift; sourceTree = "<group>"; };
+		889EAD3E2C635D1C0057866B /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		88AFCA932C5A18DA00E2CC44 /* NumbersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersViewController.swift; sourceTree = "<group>"; };
 		88AFCA972C5A1D0000E2CC44 /* SimpleValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleValidationViewController.swift; sourceTree = "<group>"; };
 		88AFCA992C5A23A600E2CC44 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				8810B9D92C5C775200EC5F21 /* ShopTableViewCell.swift */,
+				889EAD3E2C635D1C0057866B /* ShopCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				88AFCA9A2C5A23A600E2CC44 /* PasswordViewController.swift in Sources */,
 				880EDEFC2C5BAF850019E8CC /* PointButton.swift in Sources */,
 				880EDEFE2C5BAF890019E8CC /* SignTextField.swift in Sources */,
+				889EAD3F2C635D1C0057866B /* ShopCollectionViewCell.swift in Sources */,
 				88AFCA942C5A18DA00E2CC44 /* NumbersViewController.swift in Sources */,
 				88AFCA982C5A1D0000E2CC44 /* SimpleValidationViewController.swift in Sources */,
 				88B3E6842C58CAB0009532E1 /* AppDelegate.swift in Sources */,
