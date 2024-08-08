@@ -46,6 +46,9 @@
 		88B8EF5E2C64B3D6007E0864 /* BoxOfficeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8EF5D2C64B3D6007E0864 /* BoxOfficeViewModel.swift */; };
 		88B8EF602C64B3DB007E0864 /* BoxOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8EF5F2C64B3DB007E0864 /* BoxOffice.swift */; };
 		88B8EF642C64B413007E0864 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 88B8EF632C64B413007E0864 /* .gitignore */; };
+		88B8EF662C64B4A1007E0864 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8EF652C64B4A1007E0864 /* APIKey.swift */; };
+		88B8EF682C64B64F007E0864 /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8EF672C64B64F007E0864 /* BoxOfficeTableViewCell.swift */; };
+		88B8EF6A2C64BA44007E0864 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B8EF692C64BA44007E0864 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		88B8EF5D2C64B3D6007E0864 /* BoxOfficeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewModel.swift; sourceTree = "<group>"; };
 		88B8EF5F2C64B3DB007E0864 /* BoxOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOffice.swift; sourceTree = "<group>"; };
 		88B8EF632C64B413007E0864 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		88B8EF652C64B4A1007E0864 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		88B8EF672C64B64F007E0864 /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
+		88B8EF692C64BA44007E0864 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +261,7 @@
 		88B3E6772C58CAB0009532E1 = {
 			isa = PBXGroup;
 			children = (
+				88B8EF652C64B4A1007E0864 /* APIKey.swift */,
 				88B8EF632C64B413007E0864 /* .gitignore */,
 				88B3E6822C58CAB0009532E1 /* RxSwiftPractice */,
 				88B3E6812C58CAB0009532E1 /* Products */,
@@ -295,6 +302,8 @@
 				88B8EF5B2C64B3CE007E0864 /* BoxOfficeViewController.swift */,
 				88B8EF5D2C64B3D6007E0864 /* BoxOfficeViewModel.swift */,
 				88B8EF5F2C64B3DB007E0864 /* BoxOffice.swift */,
+				88B8EF672C64B64F007E0864 /* BoxOfficeTableViewCell.swift */,
+				88B8EF692C64BA44007E0864 /* NetworkManager.swift */,
 			);
 			path = BoxOffice;
 			sourceTree = "<group>";
@@ -397,8 +406,10 @@
 				8824E6B82C60D8CA00057F57 /* PhoneViewModel.swift in Sources */,
 				8824E6BA2C60DC6B00057F57 /* BirthdayViewModel.swift in Sources */,
 				88B3E6862C58CAB0009532E1 /* SceneDelegate.swift in Sources */,
+				88B8EF6A2C64BA44007E0864 /* NetworkManager.swift in Sources */,
 				88B3E6A52C58DCB6009532E1 /* SimpleTableViewController.swift in Sources */,
 				8824E6B42C60CB8E00057F57 /* SignUpViewModel.swift in Sources */,
+				88B8EF682C64B64F007E0864 /* BoxOfficeTableViewCell.swift in Sources */,
 				88791DA52C60F40B00679EE7 /* ShopDetailViewModel.swift in Sources */,
 				88791D9F2C60E15D00679EE7 /* ShopViewModel.swift in Sources */,
 				88B3E6A02C58D24F009532E1 /* SignViewController.swift in Sources */,
@@ -408,6 +419,7 @@
 				8810B9DE2C5C852E00EC5F21 /* Shop.swift in Sources */,
 				88B3E6A32C58D856009532E1 /* SimplePickerViewController.swift in Sources */,
 				880EDF052C5BB00E0019E8CC /* BirthdayViewController.swift in Sources */,
+				88B8EF662C64B4A1007E0864 /* APIKey.swift in Sources */,
 				88B3E6A72C58DE58009532E1 /* UIViewController+.swift in Sources */,
 				880EDF012C5BAFAC0019E8CC /* Resource.swift in Sources */,
 				88B8EF5E2C64B3D6007E0864 /* BoxOfficeViewModel.swift in Sources */,

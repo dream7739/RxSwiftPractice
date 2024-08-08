@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct BoxOffice: Decodable {
+    let boxOfficeResult: BoxOfficeResult
+}
+
+struct BoxOfficeResult: Decodable {
+    let dailyBoxOfficeList: [DailyBoxOfficeList]
+}
+
+struct DailyBoxOfficeList: Decodable {
+    let movieNm: String
+    let openDt: String
+}
