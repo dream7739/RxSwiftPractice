@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class BoxOfficeViewModel {
+final class BoxOfficeViewModel: BaseViewModel {
     private let disposeBag = DisposeBag()
     
     struct Input {
@@ -35,7 +35,12 @@ final class BoxOfficeViewModel {
                 return intText
             }
             .map { "\($0)" }
-            .flatMap { NetworkManager.shared.callRequest(date: $0) }
+            .flatMap { NetworkManager.shared.callRequest(date: $0)
+                    .catch{ error in
+                        return Single<BoxOffice>.never()
+                    }
+            }
+            .debug("Button Tap")
             .subscribe { value in
                 movieList.onNext(value.boxOfficeResult.dailyBoxOfficeList)
             } onError: { error in
@@ -46,6 +51,7 @@ final class BoxOfficeViewModel {
                 print("dispose")
             }.disposed(by: disposeBag)
 
+        
         return Output(movieList: movieList)
     }
     
